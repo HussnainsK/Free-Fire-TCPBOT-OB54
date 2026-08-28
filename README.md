@@ -55,3 +55,53 @@ Tcp_Bot_For_You/
 ├── 📄 emotes.json
 ├── 📄 requirements.txt
 └── 📄 README.md
+
+
+
+## 🚀 How to Run
+
+Follow the steps below to create and run your own TCP Bot.
+
+### 🟢 Part 1 — Prepare Your Free Fire Guest Account
+
+1. You need a **Free Fire Guest ID**.
+2. From your Guest ID, send a friend request to your **Main ID**.
+3. Add the Guest ID to your Guild if you want to use the TCP Bot for a Guild.
+4. The same process applies when setting up a Guild TCP Bot.
+
+---
+
+### 🟡 Part 2 — Configure the Bot
+
+1. **Download this repository** to your computer.
+2. Open the downloaded project folder.
+3. Find the **`Enter Guest`** section/file.
+4. Enter your **Guest UID**.
+   - The Guest UID is provided in the folder named similar to **`guest100067`**.
+5. Enter the **Guest Password**.
+6. Save the changes.
+
+> ⚠️ **Security:** Never share your Guest UID/password, access tokens, or other private credentials publicly.
+
+---
+
+### 🔵 Part 3 — Deploy Your TCP Bot
+
+1. Open **Pella** and **Sign Up** or **Log In**.
+2. Click the **Create** button.
+3. Select **Telegram Bot**.
+4. Select **Python**.
+5. Upload the project **ZIP file**.
+6. Select the **Free** option.
+7. Start/run the project.
+8. Wait approximately **2 minutes** for the bot to start.
+
+---
+
+### 🎉 Congratulations!
+
+Your TCP Bot should now be running.
+
+Go to the game and **invite your TCP Bot** to test it.
+
+> 💡 If the bot does not start, check your Guest UID, password, configuration, and `requirements.txt` before trying again.
