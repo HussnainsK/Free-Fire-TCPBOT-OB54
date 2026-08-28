@@ -1,8 +1,3 @@
-<p align="center">
-  <img src="README-banner.png" alt="TCP Bot For You" width="100%">
-</p>
-
-
 # ⚡ TCP Bot For You
 
 <p align="center">
