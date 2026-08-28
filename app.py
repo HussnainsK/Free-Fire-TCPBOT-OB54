@@ -4344,7 +4344,7 @@ async def MaiiiinE():
     import time
     from datetime import datetime
 
-    Uid, Pw = '6903498825', 'EB68D89D121F400350F0391832D0FDEB2F80638E2CCFDDE9D260F9ECD4C95035'
+    Uid, Pw = 'Enter Guest Uid', 'Enter guest password here'
     print("📁 Loading credentials...")
     print("✅ Using hardcoded UID/Password")
 
