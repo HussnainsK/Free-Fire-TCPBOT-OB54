@@ -45,34 +45,160 @@ The repository is primarily intended for **learning, testing, and protocol resea
 
 ---
 
-## 🧱 Architecture
+## 🧱 System Architecture
+
+<div align="center">
+
+### ⚡ CORE SYSTEM
 
 ```text
-┌───────────────────────┐
-│     Python Bot App    │
-│        app.py         │
-└───────────┬───────────┘
-            │
-            ▼
-┌───────────────────────┐
-│ Networking / Protocol │
-│        xDL.py         │
-└───────────┬───────────┘
-            │
-       ┌────┴─────┐
-       ▼          ▼
-┌────────────┐ ┌──────────────┐
-│   Pb2/     │ │ Token Layer  │
-│ Protobuf   │ │ Bearer JWT   │
-└─────┬──────┘ └──────┬───────┘
-      │               │
-      └───────┬───────┘
-              ▼
-      ┌───────────────┐
-      │ Game API /    │
-      │ Network Layer │
-      └───────────────┘
+                         ┌─────────────────────────┐
+                         │       🎮 USER / BOT     │
+                         │     Command / Action    │
+                         └────────────┬────────────┘
+                                      │
+                                      ▼
+                 ╔════════════════════════════════════╗
+                 ║          🐍 APPLICATION CORE       ║
+                 ║             app.py                 ║
+                 ╚══════════════════╤═════════════════╝
+                                    │
+                                    ▼
+                 ╔════════════════════════════════════╗
+                 ║       ⚡ NETWORKING ENGINE          ║
+                 ║             xDL.py                 ║
+                 ╚═══════╤══════════════════╤═════════╝
+                         │                  │
+              ┌──────────▼─────────┐   ┌──▼────────────────┐
+              │   📦 PROTOCOL      │   │   🔐 AUTH LAYER   │
+              │      Pb2/          │   │   Bearer Token    │
+              │ Protocol Buffers  │   │ Token Handling    │
+              └──────────┬─────────┘   └────────┬───────────┘
+                         │                      │
+                         └──────────┬───────────┘
+                                    │
+                                    ▼
+                 ╔════════════════════════════════════╗
+                 ║        🌐 REQUEST / API LAYER      ║
+                 ║      Encoded HTTP Requests         ║
+                 ╚══════════════════╤═════════════════╝
+                                    │
+                                    ▼
+                         ┌─────────────────────────┐
+                         │     🎯 GAME CLIENT      │
+                         │      API ENDPOINT       │
+                         └────────────┬────────────┘
+                                      │
+                                      ▼
+                         ┌─────────────────────────┐
+                         │    📡 RESPONSE DATA     │
+                         │   Decode → Parse → Use  │
+                         └─────────────────────────┘
 ```
+
+</div>
+
+### 🔗 Component Overview
+
+| Layer | Component | Responsibility |
+|:---:|:---|:---|
+| 🎮 | **User / Bot** | Starts commands and actions |
+| 🐍 | **`app.py`** | Application and bot logic |
+| ⚡ | **`xDL.py`** | Networking and request handling |
+| 📦 | **`Pb2/`** | Protocol Buffer message structures |
+| 🔐 | **Auth Layer** | Handles Bearer-token authorization |
+| 🌐 | **API Layer** | Sends authenticated requests |
+| 📡 | **Response Layer** | Receives and processes responses |
+
+---
+
+## 🔄 Request Flow
+
+<div align="center">
+
+### 🚀 COMMAND → REQUEST → RESPONSE
+
+```text
+╭──────────────────────────────────────────────────────╮
+│                    🎮 START                          │
+│                 User / Bot Command                   │
+╰─────────────────────────┬────────────────────────────╯
+                          │
+                          ▼
+╭──────────────────────────────────────────────────────╮
+│                  🐍 APPLICATION                       │
+│                    app.py                             │
+│              Process incoming action                  │
+╰─────────────────────────┬────────────────────────────╯
+                          │
+                          ▼
+╭──────────────────────────────────────────────────────╮
+│                  🧩 BUILD REQUEST                     │
+│          UID / parameters / payload data              │
+╰─────────────────────────┬────────────────────────────╯
+                          │
+                          ▼
+╭──────────────────────────────────────────────────────╮
+│                  📦 ENCODE DATA                       │
+│             Protocol Buffer / encoding                │
+╰─────────────────────────┬────────────────────────────╯
+                          │
+                          ▼
+╭──────────────────────────────────────────────────────╮
+│                    🔐 AUTHORIZE                       │
+│             Bearer <runtime-token>                    │
+╰─────────────────────────┬────────────────────────────╯
+                          │
+                          ▼
+╭──────────────────────────────────────────────────────╮
+│                  🌐 SEND REQUEST                      │
+│              HTTP POST → API endpoint                 │
+╰─────────────────────────┬────────────────────────────╯
+                          │
+                          ▼
+╭──────────────────────────────────────────────────────╮
+│                   📡 RECEIVE                          │
+│              Binary / encoded response                │
+╰─────────────────────────┬────────────────────────────╯
+                          │
+                          ▼
+╭──────────────────────────────────────────────────────╮
+│                 🔍 DECODE & PARSE                     │
+│           Convert response → usable data              │
+╰─────────────────────────┬────────────────────────────╯
+                          │
+                          ▼
+╭──────────────────────────────────────────────────────╮
+│                    ✅ RESULT                          │
+│             Return processed response                 │
+╰──────────────────────────────────────────────────────╯
+```
+
+</div>
+
+### ⚙️ Flow Summary
+
+```text
+🎮 COMMAND
+    │
+    ├──► 🐍 app.py
+    │
+    ├──► 🧩 Build Payload
+    │
+    ├──► 📦 Encode
+    │
+    ├──► 🔐 Authenticate
+    │
+    ├──► 🌐 HTTP Request
+    │
+    ├──► 📡 Response
+    │
+    ├──► 🔍 Decode
+    │
+    └──► ✅ Result
+```
+
+> 🔒 **Security boundary:** Authentication tokens should remain private and must never be displayed in documentation, screenshots, source code, or public commits.
 
 ---
 
@@ -91,36 +217,6 @@ The networking code uses **Bearer-token authentication** for authenticated game-
 | `MajoRLoGinrEs_pb2.py` | Login-response message definitions |
 | `token.txt` | Runtime token storage referenced by the networking code |
 | `token.json` | Token/metadata file currently present in the repository |
-
-### Request flow
-
-```text
-Bot command
-    │
-    ▼
-Build request payload
-    │
-    ▼
-Encode / encrypt payload
-    │
-    ▼
-Read runtime token
-    │
-    ▼
-Authorization: Bearer <token>
-    │
-    ▼
-HTTP POST request
-    │
-    ▼
-Receive binary / encoded response
-    │
-    ▼
-Decode / parse response
-    │
-    ▼
-Return requested data
-```
 
 The current `xDL.py` implementation reads a runtime token from `token.txt` and places it in an HTTP `Authorization` header using the `Bearer` scheme. It also contains a background routine that periodically requests tokens from an external service and writes a selected token to `token.txt`.
 
