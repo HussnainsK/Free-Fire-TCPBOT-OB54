@@ -1,10 +1,8 @@
 <div align="center">
-⚡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━⚡
-             F R E E   F I R E   T C P   B O T
-                         —  O B 5 4  —
-⚡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━⚡
 
-                 Professional Python TCP Bot Project
+⚡ FREE FIRE TCP BOT — OB54
+
+Professional Python TCP Bot Project
 
 <p>
   <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python">
@@ -811,6 +809,24 @@ Developer & Repository Owner
 📜 License
 
 No explicit open-source license is currently specified in this README. Unless a license is added to the repository, users should not assume that the code may be freely redistributed or modified beyond the permissions granted by GitHub's repository access and applicable law.
+
+💖 Support This Project
+
+If you find Free-Fire-TCPBOT-OB54 useful for learning, research, or development, consider supporting the project. Your support helps encourage continued development, documentation, and improvements.
+
+<div align="center">
+
+💰 Sponsorship
+
+<a href="https://github.com/sponsors/HussnainsK">
+  <img src="https://img.shields.io/badge/💖%20Sponsor%20This%20Project-EA4AAA?style=for-the-badge&logo=githubsponsors&logoColor=white" alt="Sponsor This Project">
+</a>
+
+<br><br>
+
+Every contribution is appreciated. ❤️
+
+</div>
 
 ⭐ Support
 
