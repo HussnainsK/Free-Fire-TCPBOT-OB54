@@ -11,13 +11,7 @@
 </p>
 
 ---
-## 📥 Clone Repository
 
-Clone this repository using Git:
-
-```bash
-git clone https://github.com/HussnainsK/Free-Fire-TCPBOT-OB54.git
-cd Free-Fire-TCPBOT-OB54
 
 ## 📌 About
 
@@ -112,3 +106,35 @@ Your TCP Bot should now be running.
 Go to the game and **invite your TCP Bot** to test it.
 
 > 💡 If the bot does not start, check your Guest UID, password, configuration, and `requirements.txt` before trying again.
+
+
+## ⚡ Clone Repository
+
+<div align="center">
+
+### 🚀 Get the Project
+
+Clone **Free-Fire-TCPBOT-OB54** directly to your computer:
+
+```bash
+git clone https://github.com/HussnainsK/Free-Fire-TCPBOT-OB54.git
+```
+
+Then enter the project folder:
+
+```bash
+cd Free-Fire-TCPBOT-OB54
+```
+
+---
+
+### 🔗 Quick Access
+
+[![Clone Repository](https://img.shields.io/badge/🚀_CLONE_REPOSITORY-000000?style=for-the-badge\&logo=github\&logoColor=white)](https://github.com/HussnainsK/Free-Fire-TCPBOT-OB54)
+
+[⭐ View Repository](https://github.com/HussnainsK/Free-Fire-TCPBOT-OB54) • [🐛 Report Issue](https://github.com/HussnainsK/Free-Fire-TCPBOT-OB54/issues)
+
+</div>
+
+> 💡 **Tip:** Make sure Git is installed on your PC before running the command.
+
