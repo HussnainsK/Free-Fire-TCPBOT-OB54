@@ -11,6 +11,13 @@
 </p>
 
 ---
+## 📥 Clone Repository
+
+Clone this repository using Git:
+
+```bash
+git clone https://github.com/HussnainsK/Free-Fire-TCPBOT-OB54.git
+cd Free-Fire-TCPBOT-OB54
 
 ## 📌 About
 
