@@ -1,285 +1,272 @@
+<div align="center">
+
 # ⚡ FREE FIRE TCP BOT — OB54
 
-<p align="center">
-  <img src="https://img.shields.io/badge/FREE%20FIRE-OB54-ff6b00?style=for-the-badge&logo=gamepad&logoColor=white" alt="Free Fire OB54">
-  <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/Protocol-TCP-00A67E?style=for-the-badge" alt="TCP">
-  <img src="https://img.shields.io/badge/Status-Active-2ea44f?style=for-the-badge" alt="Status">
+### Professional Python TCP Bot Project
+
+<p>
+  <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/Protocol-TCP-111827?style=flat-square" alt="TCP">
+  <img src="https://img.shields.io/badge/Release-OB54-F97316?style=flat-square" alt="OB54">
+  <img src="https://img.shields.io/badge/Status-Active-16A34A?style=flat-square" alt="Active">
+  <img src="https://img.shields.io/badge/Purpose-Educational-7C3AED?style=flat-square" alt="Educational">
 </p>
 
-<p align="center">
-  <b>🎮 A Python-based TCP bot project for learning, testing, and protocol experimentation.</b>
+<p>
+  <a href="https://github.com/HussnainsK/Free-Fire-TCPBOT-OB54">Repository</a> •
+  <a href="https://github.com/HussnainsK/Free-Fire-TCPBOT-OB54/issues">Issues</a> •
+  <a href="https://github.com/HussnainsK/Free-Fire-TCPBOT-OB54/stargazers">Stars</a>
 </p>
 
-<p align="center">
-  <a href="https://github.com/HussnainsK/Free-Fire-TCPBOT-OB54">⭐ Repository</a> •
-  <a href="https://github.com/HussnainsK/Free-Fire-TCPBOT-OB54/issues">🐛 Issues</a>
-</p>
+</div>
 
 ---
 
-## 🏆 About The Project
+## 📌 Overview
 
-**Free-Fire-TCPBOT-OB54** is a Python-based TCP bot project containing networking logic, Protocol Buffer modules, configuration/data files, and game-client request handling.
+**Free-Fire-TCPBOT-OB54** is a Python networking project built around TCP-style bot functionality, Protocol Buffers, encoded request payloads, and authenticated HTTP requests.
 
-The project is intended for **educational, testing, and research purposes**. It is not affiliated with or endorsed by Garena.
+The repository is primarily intended for **learning, testing, and protocol research** in controlled environments.
 
-> ⚠️ **Important:** Use this project only with accounts and systems you are authorized to test. Do not use it to abuse, disrupt, or interfere with other players or services.
-
----
-
-## ✨ Features
-
-- ⚡ TCP/network-based bot functionality
-- 🐍 Python implementation
-- 🔐 Bearer-token based authenticated requests
-- 📦 Protocol Buffer (`Pb2`) modules
-- 🔄 Runtime token handling
-- 🎯 Player/profile request functionality
-- 🎮 Free Fire OB54-oriented protocol data
-- 🛠️ Configurable project structure
+> **Disclaimer:** This is an independent community project. It is not affiliated with, sponsored by, or endorsed by Garena or Free Fire.
 
 ---
 
-## 📂 Project Structure
+## ✨ Highlights
+
+- **Python-based** implementation
+- **TCP/networking** functionality
+- **Protocol Buffer** message modules
+- **Bearer-token authentication** for authenticated requests
+- **Encoded request/response** processing
+- **Player/profile** request handling
+- **OB54-oriented** protocol data
+- Simple, modular project layout
+
+---
+
+## 🧱 Architecture
+
+```text
+┌───────────────────────┐
+│     Python Bot App    │
+│        app.py         │
+└───────────┬───────────┘
+            │
+            ▼
+┌───────────────────────┐
+│ Networking / Protocol │
+│        xDL.py         │
+└───────────┬───────────┘
+            │
+       ┌────┴─────┐
+       ▼          ▼
+┌────────────┐ ┌──────────────┐
+│   Pb2/     │ │ Token Layer  │
+│ Protobuf   │ │ Bearer JWT   │
+└─────┬──────┘ └──────┬───────┘
+      │               │
+      └───────┬───────┘
+              ▼
+      ┌───────────────┐
+      │ Game API /    │
+      │ Network Layer │
+      └───────────────┘
+```
+
+---
+
+## 🔐 Authentication
+
+The networking code uses **Bearer-token authentication** for authenticated game-client requests. This is different from a normal website session-based login.
+
+### Authentication components
+
+| Component | Responsibility |
+|---|---|
+| `app.py` | Main application and bot logic |
+| `xDL.py` | Networking, token retrieval, request construction and response processing |
+| `Pb2/` | Protocol Buffer message definitions |
+| `MajoRLoGinrEq_pb2.py` | Login-request message definitions |
+| `MajoRLoGinrEs_pb2.py` | Login-response message definitions |
+| `token.txt` | Runtime token storage referenced by the networking code |
+| `token.json` | Token/metadata file currently present in the repository |
+
+### Request flow
+
+```text
+Bot command
+    │
+    ▼
+Build request payload
+    │
+    ▼
+Encode / encrypt payload
+    │
+    ▼
+Read runtime token
+    │
+    ▼
+Authorization: Bearer <token>
+    │
+    ▼
+HTTP POST request
+    │
+    ▼
+Receive binary / encoded response
+    │
+    ▼
+Decode / parse response
+    │
+    ▼
+Return requested data
+```
+
+The current `xDL.py` implementation reads a runtime token from `token.txt` and places it in an HTTP `Authorization` header using the `Bearer` scheme. It also contains a background routine that periodically requests tokens from an external service and writes a selected token to `token.txt`.
+
+> 🔒 **Security:** Never publish passwords, access tokens, session credentials, or other private authentication material. Any credential accidentally committed to a public repository should be revoked/rotated immediately.
+
+---
+
+## 📁 Repository Structure
 
 ```text
 Free-Fire-TCPBOT-OB54/
 │
-├── 📁 Pb2/
+├── Pb2/
+│   ├── DEcwHisPErMsG_pb2.py
+│   ├── Fo_pb2.py
+│   ├── GenWhisperMsg_pb2.py
 │   ├── MajoRLoGinrEq_pb2.py
 │   ├── MajoRLoGinrEs_pb2.py
-│   ├── DEcwHisPErMsG_pb2.py
-│   ├── GenWhisperMsg_pb2.py
 │   ├── PorTs_pb2.py
 │   ├── Team_msg_pb2.py
 │   ├── kyro_title_pb2.py
 │   ├── room_join_pb2.py
 │   └── sQ_pb2.py
 │
-├── 📄 app.py
-├── 📄 xDL.py
-├── 📄 emotes.json
-├── 📄 requirements.txt
-├── 🔐 token.json
-└── 📄 README.md
+├── app.py
+├── xDL.py
+├── emotes.json
+├── requirements.txt
+├── token.json
+└── README.md
 ```
 
-> 🔒 **Security note:** Never commit real credentials, passwords, access tokens, or private session tokens to a public repository. `token.json` should not contain a usable secret in a public release.
-
 ---
 
-# 🔐 Authentication Architecture
+## 📥 Installation
 
-The project does not use a conventional website-style session login. Its networking code uses **Bearer-token authentication** when communicating with the game-client API.
-
-### 🧩 Main Components
-
-| Component | Purpose |
-|---|---|
-| `app.py` | Main application/bot logic |
-| `xDL.py` | Networking, token handling, request construction |
-| `token.json` | Token/metadata storage present in the repository |
-| `token.txt` | Runtime token storage used by `xDL.py` |
-| `Pb2/MajoRLoGinrEq_pb2.py` | Login-request Protocol Buffer definitions |
-| `Pb2/MajoRLoGinrEs_pb2.py` | Login-response Protocol Buffer definitions |
-| `Pb2/` | Generated Protocol Buffer message modules |
-
-The repository currently contains login-related protobuf modules and networking code in `xDL.py`. The README previously described Guest UID/password configuration, while the code also uses token-based authorization. 
-
----
-
-## 🔑 How Credentials & Tokens Are Handled
-
-At a high level, the request code follows this pattern:
-
-```text
-┌──────────────────────┐
-│ Bot / Python process │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│ Obtain / read token  │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│ Build encoded packet │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────────────┐
-│ Authorization: Bearer <JWT>  │
-└──────────────┬───────────────┘
-               │
-               ▼
-┌──────────────────────────────┐
-│ Authenticated game API POST  │
-└──────────────┬───────────────┘
-               │
-               ▼
-┌──────────────────────────────┐
-│ Decode / parse response      │
-└──────────────────────────────┘
-```
-
-`xDL.py` defines `GeTToK()` to read a runtime token from `token.txt`. Its authenticated requests then place that value in an HTTP `Authorization` header using the `Bearer` scheme.
-
-The code also contains a background `ToK()` routine that contacts an external token service, selects a returned token, and writes it to `token.txt` periodically.
-
-> ⚠️ **Never publish the resulting token or a real account credential.** Treat access tokens like passwords: keep them private, rotate exposed credentials, and use environment variables or a proper secret manager for production deployments.
-
----
-
-# 🔄 Request Flow
-
-A simplified authenticated request looks like this:
-
-```text
-User / Bot Command
-       │
-       ▼
-Python Bot Logic
-       │
-       ▼
-Build UID / request payload
-       │
-       ▼
-Encode / encrypt request data
-       │
-       ▼
-Read runtime Bearer token
-       │
-       ▼
-HTTP POST → Game Client API
-       │
-       ▼
-Binary / encoded response
-       │
-       ▼
-Decode response
-       │
-       ▼
-Extract requested data
-       │
-       ▼
-Return result to bot
-```
-
-For example, the player-information functions in `xDL.py` construct encoded data and send it to the `GetPlayerPersonalShow` endpoint with a Bearer authorization header.
-
----
-
-# 📥 Clone Repository
-
-<div align="center">
-
-### 🚀 Get The Project
+### 1. Clone
 
 ```bash
 git clone https://github.com/HussnainsK/Free-Fire-TCPBOT-OB54.git
 cd Free-Fire-TCPBOT-OB54
 ```
 
-[![Clone Repository](https://img.shields.io/badge/🚀_CLONE_REPOSITORY-000000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/HussnainsK/Free-Fire-TCPBOT-OB54)
-
-</div>
-
----
-
-# 🛠️ Installation
-
-### 1️⃣ Install Python
-
-Install a supported Python 3.x release and verify it:
+### 2. Verify Python
 
 ```bash
 python --version
 ```
 
-### 2️⃣ Clone the repository
-
-```bash
-git clone https://github.com/HussnainsK/Free-Fire-TCPBOT-OB54.git
-cd Free-Fire-TCPBOT-OB54
-```
-
-### 3️⃣ Install dependencies
+### 3. Install dependencies
 
 ```bash
 python -m pip install -r requirements.txt
 ```
 
-### 4️⃣ Configure secrets safely
+### 4. Configure secrets safely
 
-Do **not** paste real passwords or tokens into source files or commit them to GitHub. Use environment variables or a local, ignored configuration file instead.
+Do **not** place real passwords or tokens directly in source code or commit them to GitHub.
 
-Example pattern:
+For local development, prefer environment variables or an ignored configuration file:
 
 ```text
-TOKEN=<your-private-token>
-UID=<your-authorized-test-account-uid>
+TOKEN=<private-token>
+UID=<authorized-test-account-uid>
 ```
 
-Add secret/config files to `.gitignore` before committing changes.
+Add local secret files to `.gitignore` before committing changes.
 
 ---
 
-# 🚀 Running
+## ▶️ Running
 
-After installing dependencies and configuring your authorized test environment, start the project using the appropriate Python entry point supplied with your deployment:
+After installing dependencies and configuring an authorized test environment:
 
 ```bash
 python app.py
 ```
 
-If your local version uses another entry point, follow the project's current source/configuration rather than guessing a command.
+The exact runtime behavior depends on the current source code and deployment environment.
 
 ---
 
-# 🔒 Security Checklist
+## 🛡️ Security Best Practices
 
-Before publishing or deploying:
-
-- [ ] Remove real tokens from `token.json`.
-- [ ] Rotate/revoke any token that has already been exposed publicly.
-- [ ] Never publish passwords.
-- [ ] Never publish private session credentials.
-- [ ] Add secret files to `.gitignore`.
-- [ ] Use environment variables or a secret manager.
-- [ ] Test only accounts and systems you are authorized to use.
-
-> 🚨 **If a credential has been pushed to GitHub, deleting the file alone is not enough. Rotate/revoke the credential because it may remain in Git history or caches.**
+- Never publish credentials or session tokens.
+- Rotate credentials immediately if they are exposed.
+- Do not rely on deleting a secret file alone; exposed values can remain in Git history.
+- Keep local secret/configuration files out of version control.
+- Use environment variables or a dedicated secret manager for deployments.
+- Test only accounts and systems you are authorized to use.
+- Do not use the project to disrupt services, bypass access controls, or interfere with other players.
 
 ---
 
-# 📜 Disclaimer
+## ⚠️ Responsible Use
 
-This project is provided for **educational and testing purposes only**. The author does not encourage cheating, abuse, unauthorized access, service disruption, or violation of game/platform rules.
+This repository is provided for **educational, testing, and research purposes**. Users are responsible for complying with applicable laws, platform rules, game terms, and network policies.
 
-**Free Fire** and related trademarks belong to their respective owners. This project is an independent community project and is not affiliated with Garena.
+The author does not encourage unauthorized access, cheating, abuse, service disruption, credential theft, or interference with third-party accounts or infrastructure.
 
 ---
 
-# 👨‍💻 Credits
+## 🤝 Contributing
+
+Contributions that improve code quality, documentation, reliability, and educational value are welcome.
+
+1. Fork the repository.
+2. Create a feature branch.
+3. Make your changes.
+4. Test your changes in an authorized environment.
+5. Open a pull request with a clear description.
+
+Please **never include real credentials or private tokens** in pull requests.
+
+---
+
+## 👨‍💻 Maintainer
 
 <div align="center">
 
-### ⚡ Hussnain sK
+### Hussnain sK
 
-**Developer / Repository Owner**
+**Developer & Repository Owner**
 
-[![GitHub](https://img.shields.io/badge/GitHub-HussnainsK-181717?style=for-the-badge&logo=github)](https://github.com/HussnainsK)
+<a href="https://github.com/HussnainsK">
+  <img src="https://img.shields.io/badge/GitHub-HussnainsK-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+</a>
 
 </div>
 
 ---
 
-# ⭐ Support The Project
+## 📜 License
 
-If this project is useful for your **learning and testing**, consider giving the repository a ⭐ on GitHub.
+No explicit open-source license is currently specified in this README. Unless a license is added to the repository, users should not assume that the code may be freely redistributed or modified beyond the permissions granted by GitHub's repository access and applicable law.
 
-<p align="center">
-  <b>🎮 CODE • TEST • LEARN • BUILD ⚡</b>
-</p>
+---
+
+## ⭐ Support
+
+If you find the project useful for learning or research, consider giving the repository a ⭐.
+
+<div align="center">
+
+**BUILD • TEST • LEARN • IMPROVE**
+
+[⭐ Star Repository](https://github.com/HussnainsK/Free-Fire-TCPBOT-OB54)
+
+</div>
