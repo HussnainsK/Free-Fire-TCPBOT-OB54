@@ -1,4 +1,4 @@
-# 𝐁ʏ 𝐒ᴛᴀʀ
+# 𝐁ʏ 𝙃𝙪𝙨𝙨𝙣𝙖𝙞𝙣
 
 import requests, os, sys, json, binascii, time, urllib3, base64, datetime, re, socket, threading, random, asyncio, jwt, pickle
 from protobuf_decoder.protobuf_decoder import Parser
@@ -367,17 +367,17 @@ async def RejectMSGtaxt(squad_owner, uid, key, iv):
 
 
     
-[B][C][00FF00]★ D E V   S T A R    G A M E R★
+[B][C][00FF00]★ H U S S N A I N   A S I F★
 [FF0000]━━━━━━━━━━━━━━━━━━━━━━━━━━
 [B][C][FF9900]D O N E   H A C K I N G
 [B][C][E75480]Y O U R   A C C O U N T
 [81DACA]━━━━━━━━━━━━━━━━━━━━━━━━━━
 [B][C][FF0000]F U C K   Y O U
 [CCFFCC]━━━━━━━━━━━━━━━━━━━━━━━━━━
-[B][C][81DACA]P O W E R E D   B Y   S T A R    G A M E R
+[B][C][81DACA]P O W E R E D   B Y   H U S S N A I N    S K
 [FFFF00]━━━━━━━━━━━━━━━━━━━━━━━━━━
 [B][C][00FF00]F O L L O W   M E   O N   I N S T A G R A M
-[B][C][FFFFFF]@starzzff08
+[B][C][FFFFFF]@dark_reality
 [00008B]━━━━━━━━━━━━━━━━━━━━━━━━━━
 [B][C][81DACA]I F   Y O U   D O N T   F O L L O W   M E
 [B][C][FF0000]I   W I L L   B A N   Y O U R   A C C O U N T"""
